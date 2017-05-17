@@ -10,7 +10,7 @@ case $SERVICE_NAME in
 		MIGRATIONS_PATH=${MIGRATIONS_PATH:-migrations/server/mysql}
 		DB_URL=${DB_URL:-mysql://server@tcp(mysql:3306)/notaryserver}
 		# have to poll for DB to come up
-		until migrate -path=$MIGRATIONS_PATH -url=$DB_URL version > /dev/null
+		until migrate -path=$MIGRATIONS_PATH -url=$DB_URL version
 		do
 			iter=$(( iter+1 ))
 			if [[ $iter -gt 30 ]]; then
@@ -37,7 +37,7 @@ case $SERVICE_NAME in
 		MIGRATIONS_PATH=${MIGRATIONS_PATH:-migrations/signer/mysql}
 		DB_URL=${DB_URL:-mysql://signer@tcp(mysql:3306)/notarysigner}
 		# have to poll for DB to come up
-		until migrate -path=$MIGRATIONS_PATH -url=$DB_URL up version > /dev/null
+		until migrate -path=$MIGRATIONS_PATH -url=$DB_URL up version
 		do
 			iter=$(( iter+1 ))
 			if [[ $iter -gt 30 ]]; then

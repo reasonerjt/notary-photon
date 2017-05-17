@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-#TODO: update the value
+#TODO: update the value of NOTARY_ROOT
 NOTARY_ROOT=~/gows/src/github.com/docker/notary/
 NOTARYPKG=github.com/docker/notary
 COMMID_ID=`git --git-dir=$NOTARY_ROOT/.git rev-parse --short HEAD`
